@@ -25,6 +25,22 @@ apt-get update && apt-get -y install foreman-installer
 
 /usr/sbin/foreman-installer > /home/ubuntu/foreman.log
 
+mv /home/ubuntu/foreman.log /etc/foreman
+
+
+echo '#!/bin/sh' > /etc/update-motd.d/01-foreman
+echo 'if [ -r /etc/foreman/foreman.log ] ; then '  >> /etc/update-motd.d/01-foreman
+echo '#Foreman instalation description' >> /etc/update-motd.d/01-foreman
+echo 'echo "==================================="' >> /etc/update-motd.d/01-foreman
+echo 'echo "Foreman instalation description"' >> /etc/update-motd.d/01-foreman
+echo 'tail -n 5 /etc/foreman/foreman.log' >> /etc/update-motd.d/01-foreman
+echo 'echo "==================================="' >> /etc/update-motd.d/01-foreman
+echo 'echo "To remove this information execute sudo rm /etc/foreman/foreman.log" ' >> /etc/update-motd.d/01-foreman
+echo 'fi'  >> /etc/update-motd.d/01-foreman
+
+
+chmod +x /etc/update-motd.d/01-foreman
+
 reboot
 
 exit 0;

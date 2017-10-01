@@ -4,7 +4,7 @@
 apt-get update
 apt-get upgrade -y
 
-apt-get -y install ca-certificates
+apt-get -y install ca-certificates language-pack-pt
 wget https://apt.puppetlabs.com/puppetlabs-release-pc1-xenial.deb
 dpkg -i puppetlabs-release-pc1-xenial.deb
 
@@ -13,10 +13,7 @@ echo "deb http://deb.theforeman.org/ plugins 1.16" >> /etc/apt/sources.list.d/fo
 apt-get -y install ca-certificates
 wget -q https://deb.theforeman.org/pubkey.gpg -O- | apt-key add -
 
-apt-get install language-pack-pt -y
-
 /usr/sbin/foreman-installer > /home/ubuntu/foreman.log
-
 
 mv /home/ubuntu/foreman.log /etc/foreman
 
@@ -46,4 +43,3 @@ ln -s /opt/puppetlabs/bin/puppet /bin/puppet
 reboot
 
 exit 0;
-

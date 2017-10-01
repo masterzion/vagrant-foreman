@@ -1,6 +1,8 @@
 # -*- mode: ruby -*-
 # vi: set ft=ruby :
 
+
+# PS: tested with Vagrant 2.0
 Vagrant.configure(2) do |config|
 	config.vm.define "foreman" do |foreman|
 		foreman.vm.box = "ubuntu/xenial64"
@@ -36,6 +38,4 @@ Vagrant.configure(2) do |config|
 
 		box1.vm.provision :shell, :path => "files/script_boxes.sh"
 	end
-
-	
 end

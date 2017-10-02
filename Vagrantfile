@@ -16,7 +16,7 @@ Vagrant.configure(2) do |config|
 		foreman.vm.provider "virtualbox" do |vb|
 			vb.gui = false
 			vb.name = "Foreman150"
-			vb.memory = "2048"
+			vb.memory = "4096"
 		end
 
 		foreman.vm.provision :shell, :path => "files/script_foreman.sh"

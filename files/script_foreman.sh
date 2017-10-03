@@ -42,9 +42,10 @@ chmod +x /etc/update-motd.d/01-foreman
 echo "10.0.0.11   box1.localdomain foreman" >> /etc/hosts
 
 ln -s /opt/puppetlabs/bin/puppet /bin/puppet 
+ln -s /opt/puppetlabs/bin/facter /bin/facter
 
-/bin/puppet module install -i /opt/puppetlabs/puppet/modules puppetlabs/ntp
-/bin/puppet module install  -i /opt/puppetlabs/puppet/modules puppetlabs-motd
+/bin/puppet module install -i /etc/puppetlabs/code/modules puppetlabs/ntp
+/bin/puppet module install -i /etc/puppetlabs/code/modules puppetlabs-motd
 
 reboot
 

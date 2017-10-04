@@ -33,6 +33,7 @@ echo 'echo "==================================="' >> /etc/update-motd.d/01-forem
 echo "echo '' " >> /etc/update-motd.d/01-foreman   >> /etc/update-motd.d/01-foreman
 echo "echo 'Please type:'"  >> /etc/update-motd.d/01-foreman   >> /etc/update-motd.d/01-foreman
 echo "echo 'sudo puppet cert --sign box1.localdomain'"  >> /etc/update-motd.d/01-foreman
+echo "echo 'sudo puppet cert --sign box2.localdomain'"  >> /etc/update-motd.d/01-foreman
 echo "echo '' " >> /etc/update-motd.d/01-foreman   >> /etc/update-motd.d/01-foreman
 echo 'echo "To remove this information execute sudo rm /etc/foreman/foreman.log" ' >> /etc/update-motd.d/01-foreman
 echo 'fi'  >> /etc/update-motd.d/01-foreman 

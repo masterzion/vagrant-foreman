@@ -39,7 +39,8 @@ echo 'fi'  >> /etc/update-motd.d/01-foreman
 
 chmod +x /etc/update-motd.d/01-foreman
 
-echo "10.0.0.11   box1.localdomain foreman" >> /etc/hosts
+echo "10.0.0.11   box1.localdomain box1" >> /etc/hosts
+echo "10.0.0.12   box2.localdomain box2" >> /etc/hosts
 
 ln -s /opt/puppetlabs/bin/puppet /bin/puppet 
 ln -s /opt/puppetlabs/bin/facter /bin/facter

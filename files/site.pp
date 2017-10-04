@@ -7,7 +7,7 @@
 #
 # on the client
 # /usr/bin/puppet agent --server foreman.localdomain --test –trace
-#
+# facter osfamily
 
 node box1.localdomain {
 	notify { 'Applying class webapp': }

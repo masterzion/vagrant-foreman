@@ -16,8 +16,6 @@ apt-get upgrade -y
 
 apt-get -y install ca-certificates foreman-installer
 
-puppet cert --sign box1.localdomain
-
 /usr/sbin/foreman-installer > /home/ubuntu/foreman.log
 
 mv /home/ubuntu/foreman.log /etc/foreman

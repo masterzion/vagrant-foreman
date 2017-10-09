@@ -18,7 +18,6 @@ apt-get -y install ca-certificates foreman-installer
 
 puppet cert --sign box1.localdomain
 
-
 /usr/sbin/foreman-installer > /home/ubuntu/foreman.log
 
 mv /home/ubuntu/foreman.log /etc/foreman
@@ -47,16 +46,15 @@ echo "10.0.0.12   box2.localdomain box2" >> /etc/hosts
 ln -s /opt/puppetlabs/bin/puppet /bin/puppet 
 ln -s /opt/puppetlabs/bin/facter /bin/facter
 
-
-ln -s /vagrant-files/site.pp /etc/puppetlabs/code/environments/production/manifests/site.pp
+mkdir -p /etc/puppetlabs/code/environments/production/manifests/
+ln -s /vagrant/files/puppetfiles/site.pp /etc/puppetlabs/code/environments/production/manifests/site.pp
 
 mkdir -p /etc/puppetlabs/code/modules/profile/
-ln -s /vagrant-files/modules/profile/manifests/ /etc/puppetlabs/code/modules/profile/manifests/
+ln -s /vagrant/files/puppetfiles/modules/profile/manifests/ /etc/puppetlabs/code/modules/profile/
 
 
 mkdir -p /etc/puppetlabs/code/modules/role/
-ln -s /vagrant-files/modules/role/manifests/ /etc/puppetlabs/code/modules/role/manifests/
-
+ln -s /vagrant/files/puppetfiles/modules/role/manifests/ /etc/puppetlabs/code/modules/role/
 
 /bin/puppet module install -i /etc/puppetlabs/code/modules puppetlabs/ntp
 /bin/puppet module install -i /etc/puppetlabs/code/modules puppetlabs-motd

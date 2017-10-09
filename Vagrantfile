@@ -12,9 +12,7 @@ Vagrant.configure(2) do |config|
 		foreman.vm.network "public_network", ip: "10.0.0.10"
 		foreman.vm.hostname = "foreman.localdomain"
 		
-		foreman.vm.synced_folder ".", "/vagrant", disabled: true
-		
-		foreman.vm.synced_folder "files/puppetfiles", "/vagrant-files"
+		foreman.vm.synced_folder ".", "/vagrant", disabled: false
 
 		foreman.vm.provider "virtualbox" do |vb|
 			vb.gui = false
@@ -30,8 +28,6 @@ Vagrant.configure(2) do |config|
 	
 		box1.vm.hostname = "box1.localdomain"
 		box1.vm.network "public_network", ip: "10.0.0.11"
-		
-		box1.vm.synced_folder ".", "/vagrant", disabled: true
 
 		box1.vm.provider "virtualbox" do |vb|
 			vb.gui = false
@@ -47,8 +43,6 @@ Vagrant.configure(2) do |config|
 	
 		box2.vm.hostname = "box2.localdomain"
 		box2.vm.network "public_network", ip: "10.0.0.12"
-		
-		box2.vm.synced_folder ".", "/vagrant", disabled: true
 
 		box2.vm.provider "virtualbox" do |vb|
 			vb.gui = false

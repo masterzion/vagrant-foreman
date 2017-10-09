@@ -3,9 +3,12 @@
 
 
 class profile::base {
+
+  notify { 'Applying base for ${::kernel} ': }
+  
   # Include OS specific base profiles.
   case $::kernel {
-    'linux': {
+    'Linux': {
 		notify { 'Applying base profile': }
 		class { 'motd':
 			content => " Hostname ${::fqdn}. \n\n Running on os family  ${::osfamily} ( ${::operatingsystem} )!\n Useful commands: \n     puppet agent --server foreman.localdomain --test\n     facter osfamily \n\n",

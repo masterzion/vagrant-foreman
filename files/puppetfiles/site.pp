@@ -7,6 +7,7 @@
 
 
 node box1.localdomain {
+    notify { 'Applying box1.localdomain ': }
 	include role::default
 }
 

@@ -33,7 +33,7 @@ echo "echo 'sudo puppet cert --sign box1.localdomain'"  >> /etc/update-motd.d/01
 echo "echo 'sudo puppet cert --sign box2.localdomain'"  >> /etc/update-motd.d/01-foreman
 echo "echo 'sudo puppet module install -i /etc/puppetlabs/code/modules puppetlabs/mysql'"  >> /etc/update-motd.d/01-foreman
 echo "echo '' " >> /etc/update-motd.d/01-foreman   >> /etc/update-motd.d/01-foreman
-echo 'echo "To remove this information execute sudo rm /etc/foreman/foreman.log" ' >> /etc/update-motd.d/01-foreman
+echo 'echo "To remove this information, execute the command sudo rm /etc/foreman/foreman.log" ' >> /etc/update-motd.d/01-foreman
 echo 'fi'  >> /etc/update-motd.d/01-foreman 
 
 chmod +x /etc/update-motd.d/01-foreman
@@ -60,7 +60,5 @@ ln -s /vagrant/files/puppetfiles/modules/role/manifests/ /etc/puppetlabs/code/mo
 cd /etc/puppetlabs/puppet/
 wget https://raw.githubusercontent.com/theforeman/puppet-foreman/master/files/external_node_v2.rb
 
-
-reboot
 
 exit 0;

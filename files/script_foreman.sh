@@ -34,6 +34,7 @@ echo "echo '' " >> /etc/update-motd.d/01-foreman   >> /etc/update-motd.d/01-fore
 echo "echo 'Please type:'"  >> /etc/update-motd.d/01-foreman   >> /etc/update-motd.d/01-foreman
 echo "echo 'sudo puppet cert --sign box1.localdomain'"  >> /etc/update-motd.d/01-foreman
 echo "echo 'sudo puppet cert --sign box2.localdomain'"  >> /etc/update-motd.d/01-foreman
+echo "echo 'sudo puppet module install -i /etc/puppetlabs/code/modules puppetlabs/mysql'"  >> /etc/update-motd.d/01-foreman
 echo "echo '' " >> /etc/update-motd.d/01-foreman   >> /etc/update-motd.d/01-foreman
 echo 'echo "To remove this information execute sudo rm /etc/foreman/foreman.log" ' >> /etc/update-motd.d/01-foreman
 echo 'fi'  >> /etc/update-motd.d/01-foreman 
@@ -46,8 +47,23 @@ echo "10.0.0.12   box2.localdomain box2" >> /etc/hosts
 ln -s /opt/puppetlabs/bin/puppet /bin/puppet 
 ln -s /opt/puppetlabs/bin/facter /bin/facter
 
+
+ln -s /vagrant-files/site.pp /etc/puppetlabs/code/environments/production/manifests/site.pp
+
+mkdir -p /etc/puppetlabs/code/modules/profile/
+ln -s /vagrant-files/modules/profile/manifests/ /etc/puppetlabs/code/modules/profile/manifests/
+
+
+mkdir -p /etc/puppetlabs/code/modules/role/
+ln -s /vagrant-files/modules/role/manifests/ /etc/puppetlabs/code/modules/role/manifests/
+
+
 /bin/puppet module install -i /etc/puppetlabs/code/modules puppetlabs/ntp
 /bin/puppet module install -i /etc/puppetlabs/code/modules puppetlabs-motd
+
+cd /etc/puppetlabs/puppet/
+wget https://raw.githubusercontent.com/theforeman/puppet-foreman/master/files/external_node_v2.rb
+
 
 reboot
 

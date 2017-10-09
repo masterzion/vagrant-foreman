@@ -12,6 +12,8 @@ Vagrant.configure(2) do |config|
 		foreman.vm.hostname = "foreman.localdomain"
 		
 		foreman.vm.synced_folder ".", "/vagrant", disabled: true
+		
+		foreman.vm.synced_folder "files/puppetfiles", "/vagrant-files"
 
 		foreman.vm.provider "virtualbox" do |vb|
 			vb.gui = false

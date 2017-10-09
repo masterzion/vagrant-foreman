@@ -21,7 +21,7 @@ The information regarding the instalation will be present in the "message of the
 PS: tested with Vagrant 2.0 and virtualbox 5.1.28
 
 
-References: 
+#### References: 
 
 https://docs.puppet.com/puppet/5.2/modules_fundamentals.html
 

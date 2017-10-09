@@ -2,7 +2,6 @@
 # 
 # Some usefull commands:
 # On the server as root
-# /bin/puppet module install -i /etc/puppetlabs/code/modules puppetlabs/mysql
 # puppet parser validate site.pp
 #
 

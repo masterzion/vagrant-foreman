@@ -2,7 +2,8 @@
 # vi: set ft=ruby :
 
 
-# PS: tested with Vagrant 2.0
+# PS: tested with Vagrant 2.0 and virtualbox 5.1.28
+
 Vagrant.configure(2) do |config|
 	config.vm.define "foreman" do |foreman|
 		foreman.vm.box = "ubuntu/xenial64"

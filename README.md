@@ -17,3 +17,5 @@ A Vagrant script which starts a VM in Virtualbox and installs reqiurements / too
 This will spawn a Ubuntu-Virtual-Machine and will install all needed tools & dependencies for Foreman.
 
 The information regarding the instalation will be present in the "message of the day" showed after the login
+
+PS: tested with Vagrant 2.0 and virtualbox 5.1.28

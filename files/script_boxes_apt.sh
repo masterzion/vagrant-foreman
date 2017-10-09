@@ -7,6 +7,8 @@ puppet agent --enable
 puppet agent --server foreman.localdomain --waitforcert 60 --test
 puppet resource cron puppet-agent ensure=present user=root minute=5 command='/usr/bin/puppet agent -t --server foreman.localdomain  --debug > /var/log/puppet.log '
 
+/usr/share/puppet agent --server foreman.localdomain --test
+
 cd /etc/puppetlabs/puppet/
 wget https://raw.githubusercontent.com/theforeman/puppet-foreman/master/files/foreman-report_v2.rb 
 

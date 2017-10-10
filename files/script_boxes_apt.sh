@@ -7,6 +7,12 @@ puppet agent --enable
 find /etc/puppetlabs/puppet/ssl -name box2.localdomain.pem -delete
 puppet agent --server foreman.localdomain --waitforcert 30 --test
 puppet resource cron puppet-agent ensure=present user=root minute=5 command='/usr/bin/puppet agent -t --server foreman.localdomain  --debug > /var/log/puppet.log '
+<<<<<<< HEAD
+=======
+
+/usr/share/puppet agent --server foreman.localdomain --test
+
+>>>>>>> d9a734e53418291c8023afcd25198fe6616988c3
 cd /etc/puppetlabs/puppet/
 wget https://raw.githubusercontent.com/theforeman/puppet-foreman/master/files/foreman-report_v2.rb 
 

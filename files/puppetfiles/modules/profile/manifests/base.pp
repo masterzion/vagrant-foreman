@@ -18,10 +18,6 @@ class profile::base {
 		package { 'nano':
 		   ensure => 'installed',
 		}
-	
-		package { 'wget':
-		   ensure => 'installed',
-		}
 
         case $::osfamily {
             'Debian': {

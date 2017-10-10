@@ -1,11 +1,7 @@
 # /etc/puppetlabs/code/modules/profile/manifests/base.pp
-
-
-
 class profile::base {
-
   notify { 'Applying base for ${::kernel} ': }
-  
+ 
   # Include OS specific base profiles.
   case $::kernel {
     'Linux': {
@@ -22,13 +18,11 @@ class profile::base {
 		package { 'nano':
 		   ensure => 'installed',
 		}
-<<<<<<< HEAD
-		
+	
 		package { 'wget':
 		   ensure => 'installed',
 		}
-		
-=======
+
         case $::osfamily {
             'Debian': {
                         file { '/usr/bin/puppet':
@@ -47,7 +41,6 @@ class profile::base {
               fail ("puppet wont be present at /bin/puppet ")
             }
        }
->>>>>>> d9a734e53418291c8023afcd25198fe6616988c3
     }
     'windows': {
       fail ("Kernel: ${::kernel} not supported in ${module_name}")

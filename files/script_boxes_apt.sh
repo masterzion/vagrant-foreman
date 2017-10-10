@@ -4,9 +4,9 @@ apt-get update
 apt-get upgrade -y
 apt install puppet-common  language-pack-pt -y
 puppet agent --enable
-puppet agent --server foreman.localdomain --waitforcert 60 --test
+find /etc/puppetlabs/puppet/ssl -name box2.localdomain.pem -delete
+puppet agent --server foreman.localdomain --waitforcert 30 --test
 puppet resource cron puppet-agent ensure=present user=root minute=5 command='/usr/bin/puppet agent -t --server foreman.localdomain  --debug > /var/log/puppet.log '
-
 cd /etc/puppetlabs/puppet/
 wget https://raw.githubusercontent.com/theforeman/puppet-foreman/master/files/foreman-report_v2.rb 
 

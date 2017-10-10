@@ -1,7 +1,5 @@
 # -*- mode: ruby -*-
 # vi: set ft=ruby :
-
-
 # PS: tested with Vagrant 2.0 and virtualbox 5.1.28
 
 Vagrant.configure(2) do |config|
@@ -34,22 +32,23 @@ Vagrant.configure(2) do |config|
 			vb.name = "box1"
 			vb.memory = "512"
 		end
-
 		box1.vm.provision :shell, :path => "files/script_boxes_apt.sh"
 	end
 	
 	config.vm.define "box2" do |box2|
-		box2.vm.box = "centos/7"
+		box2.vm.box = "puphpet/centos7-x64"
 	
 		box2.vm.hostname = "box2.localdomain"
 		box2.vm.network "public_network", ip: "10.0.0.12"
+		
+		box2.vm.synced_folder ".", "/vagrant", disabled: false, rsync__verbose: true
+		
 
 		box2.vm.provider "virtualbox" do |vb|
 			vb.gui = false
 			vb.name = "box2"
 			vb.memory = "512"
 		end
-
 		box2.vm.provision :shell, :path => "files/script_boxes_yum.sh"
 	end
 	

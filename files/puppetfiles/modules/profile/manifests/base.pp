@@ -20,7 +20,12 @@ class profile::base {
 		 
 		package { 'nano':
 		   ensure => 'installed',
-		}	
+		}
+		
+		package { 'wget':
+		   ensure => 'installed',
+		}
+		
     }
     'windows': {
       fail ("Kernel: ${::kernel} not supported in ${module_name}")

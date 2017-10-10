@@ -3,8 +3,8 @@
 class profile::mysql_server {
 	notify { 'Applying class DB': }
 
-#
-# /bin/puppet module install -i /etc/puppetlabs/code/modules puppetlabs/mysql
+# in puppet server
+# sudo /bin/puppet module install -i /etc/puppetlabs/code/modules puppetlabs/mysql
 #
 #	class { '::mysql::server':
 #		root_password           => 'EpamMysql',

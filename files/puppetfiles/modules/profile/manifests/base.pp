@@ -7,7 +7,7 @@ class profile::base {
     'Linux': {
 		notify { 'Applying base profile': }
 		class { 'motd':
-			content => " Hostname ${::fqdn}. \n\n Running on os family  ${::osfamily} ( ${::operatingsystem} )!\n Useful commands: \n     puppet agent --server foreman.localdomain --test\n     facter osfamily \n\n",
+			content => " Hostname ${::fqdn}. \n\n Running on os family  ${::osfamily} ( ${::operatingsystem} )!\n Useful commands: \n     sudo puppet agent --server foreman.localdomain --test\n     facter osfamily \n\n",
 		}
 		package { 'screen':
 		   ensure => 'installed',
@@ -21,16 +21,16 @@ class profile::base {
 
         case $::osfamily {
             'Debian': {
-                        file { '/usr/bin/puppet':
+                        file { '/bin/puppet':
                             ensure => 'link',
-                            target => '/bin/puppet',
+                            target => '/usr/bin/puppet',
                         }
                       }
             'RedHat': {
-                        file { '/opt/puppetlabs/bin/puppet':
+                        file { '/bin/puppet':
                         
                             ensure => 'link',
-                            target => '/bin/puppet',
+                            target => '/opt/puppetlabs/bin/puppet',
                         }
                       }
             default: {

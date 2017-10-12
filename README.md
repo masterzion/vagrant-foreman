@@ -38,3 +38,5 @@ https://docs.puppet.com/facter/latest/core_facts.html
 https://www.youtube.com/watch?v=RYMNmfM6UHw
 
 https://www.udemy.com/introduction-to-puppet-roles-and-profiles
+
+https://spring.io/guides/gs/serving-web-content/

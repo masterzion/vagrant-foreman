@@ -17,7 +17,7 @@ class profile::webapp_helloworld {
 	
 	maven { "/var/www/helloworld/":
 	  id => "org.apache.maven:maven-core:3.2.5:jar",
-	  repos => ["id::layout::https://github.com/spring-guides/gs-serving-web-content.git"],
+	  repos => ["https://github.com/spring-guides/gs-serving-web-content.git"],
 	  user => 'helloworld',
 	}
 }

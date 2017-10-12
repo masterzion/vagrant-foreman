@@ -4,7 +4,7 @@ class profile::mysql_server {
 	notify { "Applying class DB $mysql_server ": }
 
 # Run it in the server! ;)
-# sudo puppet module install -i /etc/puppetlabs/code/modules puppetlabs/mysql
+#   sudo puppet module install -i /etc/puppetlabs/code/modules puppetlabs/mysql
 
 #	class { '::mysql::server':
 #		root_password           => $mysql_root_pass,

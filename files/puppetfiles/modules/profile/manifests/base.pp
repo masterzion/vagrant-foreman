@@ -1,6 +1,6 @@
 # /etc/puppetlabs/code/modules/profile/manifests/base.pp
 class profile::base {
-  notify { 'Applying base for ${::kernel} ': }
+  notify { "Applying base for ${::kernel} ": }
  
   # Include OS specific base profiles.
   case $::kernel {
@@ -19,24 +19,10 @@ class profile::base {
 		   ensure => 'installed',
 		}
 
-        case $::osfamily {
-            'Debian': {
-                        file { '/bin/puppet':
-                            ensure => 'link',
-                            target => '/usr/bin/puppet',
-                        }
-                      }
-            'RedHat': {
-                        file { '/bin/puppet':
-                        
-                            ensure => 'link',
-                            target => '/opt/puppetlabs/bin/puppet',
-                        }
-                      }
-            default: {
-              fail ("puppet wont be present at /bin/puppet ")
-            }
-       }
+		file { '/bin/puppet':
+			ensure => 'link',
+			target => '/opt/puppetlabs/bin/puppet',
+		}
     }
     'windows': {
       fail ("Kernel: ${::kernel} not supported in ${module_name}")
